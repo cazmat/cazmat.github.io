@@ -8,6 +8,10 @@ const client = new StreamerbotClient({
 
 client.on("General.Custom", (payload) => {
   console.log("Custom Websocket Event.", payload);
+  let event = payload.data;
+  if(event.info == "StreamLabels") {
+    console.log("StreamLabels Event.", event);
+  }
 });
 
 async function onConnect(instance) {
