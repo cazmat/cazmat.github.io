@@ -32,6 +32,6 @@ client.on("General.Custom", (payload) => {
 });
 
 async function onConnect(instance) {
-  console.log("StreamerBot Connected.", payload);
+  console.log("StreamerBot Connected.", instance);
   let streamLabels = await client.doAction("2eb5f452-b9a4-429a-a638-40dce0801f74");
 }
