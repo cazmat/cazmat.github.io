@@ -11,6 +11,23 @@ client.on("General.Custom", (payload) => {
   let event = payload.data;
   if(event.info == "StreamLabels") {
     console.log("StreamLabels Event.", event);
+    if(event.champion == "null") {
+      $("#stream-label-koth").html("No-one has risen to Champion.");
+    } else {
+      $("#stream-label-koth").html("<div class='label'>Champion:</div> " + event.champion);
+    }
+    if(event.bitsLeader !== "null") {
+      $("#stream-label-bit-leader").html("<div class='label'>Bits Leader:</div> " + event.bitsLeader + " (" + event.bitsLeaderAmt + ")");
+    }
+    if(event.subLeader !== "null") {
+      $("#stream-label-sub-leader").html("<div class='label'>Gift Sub Leader:</div>" + event.subLeader + " ("+ event.subLeaderAmt +")");
+    }
+    if(event.bitsRecent !== "null") {
+      $("#stream-label-bit-recent").html("<div class='label'>Latest Bits:</div> " + event.bitsRecent + " (" + event.bitsRecentAmt + ")");
+    }
+    if(event.subRecent !== "null") {
+      $("#stream-label-sub-recent").html("<div class='label'>Latest Sub:</div> " + event.subRecent );
+    }
   }
 });
 
