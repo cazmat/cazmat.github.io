@@ -29,9 +29,26 @@ client.on("General.Custom", (payload) => {
       $("#stream-label-sub-recent").html("<div class='label'>Latest Sub:</div> " + event.subRecent );
     }
   }
+  if(event.info == "Shoutout") {
+    if(event.isFeatured) {
+      featuredShoutout(event.user);
+    } else if(event.isFriend) {
+      friendShoutout(event.user);
+    } else {
+      basicShoutout(event.user);
+    }
+  }
 });
 
 async function onConnect(instance) {
   console.log("StreamerBot Connected.", instance);
   let streamLabels = await client.doAction("2eb5f452-b9a4-429a-a638-40dce0801f74");
+}
+
+function basicShoutout(user) {
+  // We don't currently use this.
+}
+function friendShoutout(user) {
+}
+function featuredShoutout(user) {
 }
